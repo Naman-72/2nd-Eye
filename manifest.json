@@ -14,9 +14,9 @@
   "permissions": ["tabs", "storage"],
   "host_permissions": ["<all_urls>"],
     "icons": {
-    "16": "icons/16.png",
-    "48": "icons/48.png",
-    "128": "icons/128.png"
+    "16": "icons/eye16.png",
+    "48": "icons/eye48.png",
+    "128": "icons/eye128.png"
     }
 
 }
