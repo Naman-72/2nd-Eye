@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>3rd Eye</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+
+  <body>
+    <div class="app">
+      <header class="header">
+        <div class="brand">
+          <div class="logo" aria-hidden="true">◎</div>
+          <div class="brandText">
+            <div class="title">3rd Eye</div>
+            <div class="subtitle">
+              <span id="todayKey">—</span>
+              <span class="sep">·</span>
+              Active tab + focused window
+            </div>
+          </div>
+        </div>
+
+        <div class="summary">
+          <div class="summaryLabel">Total</div>
+          <div id="totalTime" class="summaryValue">00:00:00</div>
+        </div>
+      </header>
+
+      <section class="toolbar" aria-label="Controls">
+        <div class="toolbarRow">
+          <label class="field">
+            <span class="fieldLabel">Day</span>
+            <select id="daySelect" class="select"></select>
+          </label>
+
+          <div class="actions">
+            <button id="exportJson" class="btn" type="button">JSON</button>
+            <button id="exportCsv" class="btn" type="button">CSV</button>
+          </div>
+        </div>
+
+        <div class="toolbarRow">
+          <div class="search" role="search">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M10.5 3a7.5 7.5 0 1 1 4.62 13.41l3.23 3.23a1 1 0 0 1-1.42 1.42l-3.23-3.23A7.5 7.5 0 0 1 10.5 3Zm0 2a5.5 5.5 0 1 0 0 11a5.5 5.5 0 0 0 0-11Z"
+              />
+            </svg>
+            <input
+              id="search"
+              class="input"
+              type="text"
+              placeholder="Search URL…"
+              spellcheck="false"
+            />
+          </div>
+
+          <div class="stats" aria-label="Stats">
+            <div class="stat" title="Number of tracked URLs">
+              <div class="statLabel">URLs</div>
+              <div id="urlCount" class="statValue">0</div>
+            </div>
+            <div class="stat" title="Top URL time">
+              <div class="statLabel">Top</div>
+              <div id="topTime" class="statValue">00:00:00</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <main class="content">
+        <div id="empty" class="empty hidden">
+          <div class="emptyTitle">No tracked time yet</div>
+          <div class="emptySub">
+            Counts only when Chrome is focused and the tab is active.
+          </div>
+        </div>
+
+        <div id="listCard" class="card hidden" role="table" aria-label="Time by URL">
+          <div class="tableHead" role="row">
+            <div class="th time" role="columnheader">Time</div>
+            <div class="th url" role="columnheader">URL</div>
+          </div>
+          <div id="rows" class="rows" role="rowgroup"></div>
+        </div>
+      </main>
+
+      <script src="popup.js" type="module"></script>
+    </div>
+  </body>
+</html>
